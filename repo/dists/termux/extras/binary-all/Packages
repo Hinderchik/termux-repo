@@ -10,9 +10,9 @@ Homepage: https://github.com/Hinderchik/claude-cli-for-termux
 Description: Claude Code CLI для Termux
  Запускай официальный Claude Code CLI на Android через Termux.
 Filename: dists/termux/extras/binary-all/claude-cli.deb
-Size: 3916
-MD5Sum: 20ffad3a300ad342a708d4c3e0953c31
-SHA1: b290755f409289512eece95aaf9514d66c06b1c0
-SHA256: 75fa9312d7483b4592a31a0607e20b3574764e5887733a29fb21afcb90779eb1
-SHA512: c67bc0c066b61fcc24d1339a968103efd93e7df322dec95ea5a1a4f3dd88f16ff60b6b0c51f942d202d5ed9d4e81a7051b57eeb09c1fc97900947d638fb4ffe3
+Size: 3968
+MD5Sum: 9311155d78a8ec3c7a90e379547f36fd
+SHA1: 3dc92ad1f3b81aaa7f1818e773c2944d44b75c84
+SHA256: cb58f4047640ab01a8713878a81f6cf21a30f4b28614924d5dd4ef11fd32351b
+SHA512: 96d19bfbefdbc9cfdc9ff0f5e8ff1da23816b334e1956d66edddb9fab4bec6eb1c24ca8473b615364fd696b34077e2ba86d5dd0e4bf8500e2408f38002f87c9e
 

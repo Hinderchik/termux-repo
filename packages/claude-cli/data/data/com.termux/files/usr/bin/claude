@@ -34,7 +34,24 @@ fi
 # Загружаем конфиг
 source "$CONFIG_FILE"
 
-# Запуск Claude (остальной код как был)
+# Текущая папка или аргумент
 TARGET_DIR="${1:-$(pwd)}"
+if [ ! -d "$TARGET_DIR" ]; then
+    mkdir -p "$TARGET_DIR"
+fi
+
 echo "🚀 Запуск Claude в $TARGET_DIR"
-# ... дальше твой код запуска proot-distro и т.д.
+
+# Запускаем Claude Code CLI внутри Alpine
+# Проверяем, установлен ли Claude Code CLI
+proot-distro login alpine -- bash -c "
+    if ! command -v claude &> /dev/null; then
+        echo '📦 Установка Claude Code CLI...'
+        npm install -g @anthropic-ai/claude-code
+    fi
+    cd '$TARGET_DIR'
+    export ANTHROPIC_API_KEY='$ANTHROPIC_API_KEY'
+    export ANTHROPIC_BASE_URL='$ANTHROPIC_BASE_URL'
+    export ANTHROPIC_MODEL='$ANTHROPIC_MODEL'
+    claude
+"
