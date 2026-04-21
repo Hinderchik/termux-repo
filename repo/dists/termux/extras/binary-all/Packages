@@ -12,10 +12,10 @@ Description: Claude Code CLI для Termux
  Включает поддержку Tor-прокси и автоматическое монтирование папок.
 Filename: dists/termux/extras/binary-all/claude-cli.deb
 Size: 4524
-MD5Sum: e807ba6e1ad6f83f52ace85abcdc26ff
-SHA1: 375b3ad6093a924ab573827a5a20bf90f21f3f06
-SHA256: 608012e612e4d35a19e2e849a6acead53b4cba00c51ee45ea023324a12f4c3c5
-SHA512: 3ac0420b04dd5f36c39f574b8df46ea2a7cba8316c7cabd9b20f37a37299b01b3bcf6bf337a7bc931161060887312e557ebb7451a4bbbf9ad93e81be824858c8
+MD5Sum: d6c5551f8c97c8b3c362b567807431e7
+SHA1: 9f411abc39da8492511c39c149e08426f7fa4f82
+SHA256: e709fb9228309a42948e82066710e93d5d3603cfa8d80b78c231c38c53f4f246
+SHA512: d78205306644f5d6ccd00a54f13fa15b8180166012f82107330a74131b5409072e603dcdf3552b39200b3bd096ed2ed169138f0df1a3d036f6e1111202fb8cd2
 
 Package: xunkal1-repo
 Version: 1.0.0
