@@ -11,11 +11,11 @@ Description: Claude Code CLI для Termux
  Запускай официальный Claude Code CLI на Android через Termux.
  Включает поддержку Tor-прокси и автоматическое монтирование папок.
 Filename: dists/termux/extras/binary-all/claude-cli.deb
-Size: 4524
-MD5Sum: d6c5551f8c97c8b3c362b567807431e7
-SHA1: 9f411abc39da8492511c39c149e08426f7fa4f82
-SHA256: e709fb9228309a42948e82066710e93d5d3603cfa8d80b78c231c38c53f4f246
-SHA512: d78205306644f5d6ccd00a54f13fa15b8180166012f82107330a74131b5409072e603dcdf3552b39200b3bd096ed2ed169138f0df1a3d036f6e1111202fb8cd2
+Size: 3964
+MD5Sum: a6394487d1b07c98a7f964821902b915
+SHA1: 75a81251573ac40d69a7b6f49e808509202e291f
+SHA256: 377cd2489d2a1270fe0035bedd152e49f1651737dcd13bb2cd18225783d55f9c
+SHA512: 0390283d3749813dae56288a82cdc96f080e3d99003586469ab23b530475d5e6bd6b2b5728f91b0fb1898984199794b6d83ba9d43d06efe511ee1dfe45a346e1
 
 Package: xunkal1-repo
 Version: 1.0.0

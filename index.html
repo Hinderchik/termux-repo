@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>📦 XunKal1 Termux Repository</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(135deg, #0a0e12 0%, #0f1519 100%);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    .header {
+      background: rgba(0, 255, 157, 0.1);
+      border: 1px solid #00ff9d;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    h1 {
+      color: #00ff9d;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .sub {
+      color: #8892b0;
+      font-size: 0.9rem;
+    }
+    .repo-url {
+      background: #0a0e12;
+      border-radius: 12px;
+      padding: 15px;
+      margin: 20px 0;
+      border: 1px solid #2a3a3a;
+    }
+    .repo-url code {
+      color: #00ff9d;
+      word-break: break-all;
+    }
+    .packages {
+      background: #0f1519;
+      border-radius: 16px;
+      border: 1px solid #1f2a2a;
+      overflow: hidden;
+    }
+    .packages-header {
+      background: #1a2525;
+      padding: 15px 20px;
+      color: #00ff9d;
+      font-weight: bold;
+      border-bottom: 1px solid #2a3a3a;
+    }
+    .package {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      border-bottom: 1px solid #1a2525;
+      transition: background 0.2s;
+    }
+    .package:hover {
+      background: #1a2525;
+    }
+    .package-name {
+      color: #00b8ff;
+      font-weight: 500;
+    }
+    .package-size {
+      color: #ffaa00;
+      font-size: 0.85rem;
+      margin-left: 15px;
+    }
+    .download-btn {
+      background: #00ff9d;
+      color: #0a0e12;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: monospace;
+      font-weight: bold;
+      transition: transform 0.1s;
+    }
+    .download-btn:hover {
+      transform: scale(1.02);
+      background: #00cc7a;
+    }
+    .install-cmd {
+      background: #0a0e12;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 30px;
+      border: 1px solid #2a3a3a;
+    }
+    .install-cmd pre {
+      background: #050808;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      color: #00ff9d;
+      margin-top: 10px;
+    }
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      color: #4a5a5a;
+      font-size: 0.8rem;
+    }
+    a { color: #00b8ff; text-decoration: none; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>📦 XunKal1 Termux Repository</h1>
+    <div class="sub">Официальный репозиторий пакетов для Termux</div>
+  </div>
+
+  <div class="repo-url">
+    <code>deb [trusted=yes] https://xunkal1-repo.vercel.app/repo termux extras</code>
+  </div>
+
+  <div class="packages">
+    <div class="packages-header">📦 Доступные пакеты</div>
+    <div id="packages-list">
+      <div style="padding: 20px; text-align: center; color: #4a5a5a;">Загрузка...</div>
+    </div>
+  </div>
+
+  <div class="install-cmd">
+    <div style="color: #00ff9d; margin-bottom: 10px;">⚡ Быстрая установка</div>
+    <pre>pkg update && pkg install claude-cli</pre>
+  </div>
+
+  <div class="footer">
+    <a href="/repo/">📁 Просмотр APT структуры</a> &nbsp;|&nbsp;
+    <a href="https://github.com/Hinderchik/termux-repo">🐙 GitHub</a> &nbsp;|&nbsp;
+    <a href="https://github.com/Hinderchik/claude-cli-for-termux">🤖 Claude CLI</a>
+  </div>
+</div>
+
+<script>
+  fetch('/repo/dists/termux/extras/binary-all/Packages')
+    .then(res => res.text())
+    .then(data => {
+      const packages = [];
+      let current = {};
+      data.split('\n').forEach(line => {
+        if (line.startsWith('Package: ')) current.name = line.replace('Package: ', '');
+        if (line.startsWith('Filename: ')) current.file = line.replace('Filename: ', '');
+        if (line.startsWith('Size: ')) current.size = parseInt(line.replace('Size: ', ''));
+        if (line === '') {
+          if (current.name && current.file) packages.push({...current});
+          current = {};
+        }
+      });
+      
+      if (packages.length === 0) {
+        document.getElementById('packages-list').innerHTML = '<div style="padding: 20px; text-align: center;">📭 Пакеты не найдены</div>';
+        return;
+      }
+      
+      document.getElementById('packages-list').innerHTML = packages.map(pkg => `
+        <div class="package">
+          <div>
+            <span class="package-name">${pkg.name}</span>
+            <span class="package-size">(${(pkg.size / 1024).toFixed(2)} KB)</span>
+          </div>
+          <button class="download-btn" onclick="downloadPackage('${pkg.file}')">⬇ Скачать</button>
+        </div>
+      `).join('');
+    })
+    .catch(() => {
+      document.getElementById('packages-list').innerHTML = '<div style="padding: 20px; text-align: center; color: #ff4444;">⚠ Ошибка загрузки списка пакетов</div>';
+    });
+
+  function downloadPackage(file) {
+    window.location.href = '/' + file;
+  }
+</script>
+</body>
+</html>
