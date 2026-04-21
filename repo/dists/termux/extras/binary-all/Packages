@@ -3,7 +3,7 @@ Version: 1.0.0
 Architecture: all
 Maintainer: Hinderchik <gondonloxlp@gmail.com>
 Installed-Size: 1024
-Depends: proot-distro, tor, curl, wget, jq
+Depends: proot-distro, tor, curl, wget, nodejs-lts
 Section: devel
 Priority: optional
 Homepage: https://github.com/Hinderchik/claude-cli-for-termux
@@ -11,28 +11,9 @@ Description: Claude Code CLI для Termux
  Запускай официальный Claude Code CLI на Android через Termux.
  Включает поддержку Tor-прокси и автоматическое монтирование папок.
 Filename: dists/termux/extras/binary-all/claude-cli.deb
-Size: 3964
-MD5Sum: a6394487d1b07c98a7f964821902b915
-SHA1: 75a81251573ac40d69a7b6f49e808509202e291f
-SHA256: 377cd2489d2a1270fe0035bedd152e49f1651737dcd13bb2cd18225783d55f9c
-SHA512: 0390283d3749813dae56288a82cdc96f080e3d99003586469ab23b530475d5e6bd6b2b5728f91b0fb1898984199794b6d83ba9d43d06efe511ee1dfe45a346e1
-
-Package: xunkal1-repo
-Version: 1.0.0
-Architecture: all
-Maintainer: Hinderchik <gondonloxlp@gmail.com>
-Installed-Size: 8
-Depends: apt (>= 2.0.0)
-Section: metapackages
-Priority: optional
-Homepage: https://github.com/Hinderchik/claude-cli-for-termux
-Description: Репозиторий XunKal1 для Termux
- Добавляет официальный репозиторий XunKal1 в источники Termux.
- После установки выполните 'pkg update' для доступа к пакетам.
-Filename: dists/termux/extras/binary-all/xunkal1-repo.deb
-Size: 1300
-MD5Sum: 961a093d6c15e2aa6b49ef180670d66f
-SHA1: 598cb31d77004398071b1696d8b50d802f8eb907
-SHA256: 2245f6ce2787bb273acefc2cd6780ce1702cbb95bd7e642c68f9402245fbd459
-SHA512: e5114bafdd605b4377a2670b7e3405fcfde444ad1ee0add80c8bb87eb80a9d80f72409fd8c60e0d532c241e3d8bc05bc690d2ae804cd47e9201c651c5f74b104
+Size: 4044
+MD5Sum: b6b4014367fc25b9f00cba6b5f6e9c07
+SHA1: a3c79960e301bba738671e669a7157683cc4af2d
+SHA256: 092cbd34785f77de03433fb5276e47e95d0d1351ac58cf2e586c798dd9c638c5
+SHA512: b986c8cd5672bb62462fd0c28389395a1aefa0dc1da53bb2ea525b1964cc3be4b1c96bd35667b8329d395daeea9586e7681e56edc903d8f494950f1d1980f6ef
 
