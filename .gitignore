@@ -1,0 +1,4 @@
+debs/
+packages/
+*.deb
+.DS_Store

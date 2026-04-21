@@ -1,0 +1,4 @@
+data/data/com.termux/files/usr/bin/claude                                        claude-cli
+data/data/com.termux/files/usr/bin/start-tor-proxy                               claude-cli
+data/data/com.termux/files/usr/lib/claude-cli/setup.sh                           claude-cli
+data/data/com.termux/files/usr/etc/apt/sources.list.d/xunkal1.list               xunkal1-repo
