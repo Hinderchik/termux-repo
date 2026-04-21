@@ -31,8 +31,8 @@ Description: Репозиторий XunKal1 для Termux
  После установки выполните 'pkg update' для доступа к пакетам.
 Filename: dists/termux/extras/binary-all/xunkal1-repo.deb
 Size: 1300
-MD5Sum: 99276e525d4bd4b7ecfeddb60ee2552f
-SHA1: b45f6f2bc89e5d25b23b3d8f631d38118e4ae012
-SHA256: 8ea94376a9590dab8ef5e3035d01cfddd4213bab9a7a08566139b6190777c2ad
-SHA512: 3d95817a6f8d72921e19eb8dc8d1459fb0616681fa81e1e79bf53680b816aa7e4cf60ede4bcd53ebaafa38d4f8031625adeb2f08fbaa69985d84f45a4c63b6ab
+MD5Sum: 961a093d6c15e2aa6b49ef180670d66f
+SHA1: 598cb31d77004398071b1696d8b50d802f8eb907
+SHA256: 2245f6ce2787bb273acefc2cd6780ce1702cbb95bd7e642c68f9402245fbd459
+SHA512: e5114bafdd605b4377a2670b7e3405fcfde444ad1ee0add80c8bb87eb80a9d80f72409fd8c60e0d532c241e3d8bc05bc690d2ae804cd47e9201c651c5f74b104
 
