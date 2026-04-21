@@ -1,12 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    { "src": "server.js", "use": "@vercel/node" },
-    { "src": "repo/**", "use": "@vercel/static" }
-  ],
   "routes": [
-    { "src": "/browse/(.*)", "dest": "/server.js" },
-    { "src": "/", "dest": "/server.js" },
-    { "src": "/(.*)", "dest": "/repo/$1" }
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/repo/(.*)", "dest": "/repo/$1" }
   ]
 }
