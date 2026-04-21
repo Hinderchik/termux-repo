@@ -1,0 +1,40 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+CONFIG_DIR="$HOME/.config/claude-cli"
+CONFIG_FILE="$CONFIG_DIR/config.sh"
+
+# Проверяем, есть ли конфиг
+if [ ! -f "$CONFIG_FILE" ]; then
+    echo "════════════════════════════════════════════════════════════╗"
+    echo "║     Claude Code CLI — Первоначальная настройка           ║"
+    echo "╚════════════════════════════════════════════════════════════╝"
+    echo ""
+    
+    mkdir -p "$CONFIG_DIR"
+    
+    echo "➜ Введите ANTHROPIC_API_KEY:"
+    read ANTHROPIC_API_KEY
+    echo "➜ Введите ANTHROPIC_BASE_URL (Enter = https://api.anthropic.com):"
+    read ANTHROPIC_BASE_URL
+    ANTHROPIC_BASE_URL=${ANTHROPIC_BASE_URL:-https://api.anthropic.com}
+    echo "➜ Введите модель (Enter = claude-opus-4-6-20250514):"
+    read ANTHROPIC_MODEL
+    ANTHROPIC_MODEL=${ANTHROPIC_MODEL:-claude-opus-4-6-20250514}
+    
+    cat > "$CONFIG_FILE" << EOF
+export ANTHROPIC_API_KEY='$ANTHROPIC_API_KEY'
+export ANTHROPIC_BASE_URL='$ANTHROPIC_BASE_URL'
+export ANTHROPIC_MODEL='$ANTHROPIC_MODEL'
+EOF
+    
+    echo "✅ Настройка сохранена в $CONFIG_FILE"
+    echo ""
+fi
+
+# Загружаем конфиг
+source "$CONFIG_FILE"
+
+# Запуск Claude (остальной код как был)
+TARGET_DIR="${1:-$(pwd)}"
+echo "🚀 Запуск Claude в $TARGET_DIR"
+# ... дальше твой код запуска proot-distro и т.д.

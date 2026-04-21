@@ -1,0 +1,5 @@
+#!/data/data/com.termux/files/usr/bin/bash
+GREEN='\033[0;32m'
+NC='\033[0m'
+echo -e "${GREEN}➜ Запуск Tor прокси на 127.0.0.1:9050${NC}"
+tor
